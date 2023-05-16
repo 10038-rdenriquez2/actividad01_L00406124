@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formulario producto</title>
+
+	<link rel="stylesheet" href="../css/main2.css">
+</head>
+<body>
+	<form id="form_general">
+		<form id="form3">
+			<fieldset>
+			<legend>Datos básicos</legend>
+				<label for="producto">Nombre del producto:</label>
+				<br>
+				<input type="text" id="producto" name="producto">
+
+				<br><br>
+				<label for="descripcion">Descripción:</label>
+				<br>
+				<textarea id="descripcion" name="descripcion"></textarea>
+				<br><br>
+				<label for="foto">Foto:</label>
+				<br>
+				<input type="file" id="foto" name="foto" accept="image/*">
+
+				<br><br>
+				<label for="confidencial">
+		    		<input type="checkbox" id="confidencial" name="confidencial" value="confidencial">Añadir información confidencial
+		  		</label>
+		  		<br>
+			</fieldset>
+		</form>
+
+		<form id="form4">
+			<fieldset>
+				<legend>Datos económicos</legend>
+				<label for="precio">Precio:</label>
+				<input type="number" name="precio" id="precio">$
+				<br><br>
+				<label for="impuestos">Impuestos:</label>
+				<select id="impuestos">
+				  	<option value="imp1">1%</option>
+				  	<option value="imp2">2%</option>
+				 	<option value="imp3">3%</option>
+				  	<option value="imp4">4%</option>
+				  	<option value="imp5">5%</option>
+				  	<option value="imp6">6%</option>
+				  	<option value="imp7">7%</opt9on>
+				  	<option value="imp8">8%</option>
+				  	<option value="imp9">9%</option>
+				  	<option value="imp10">10%</option>
+				  	<option value="imp11">11%</option>
+				  	<option value="imp12">12%</option>
+				  	<option value="imp13">13%</option>
+				  	<option value="imp14">14%</option>
+				</select>
+				<br><br>
+				<label for="promocion">Promoción:</label>
+				<br>
+				<input type="radio" id="pro1" name="pro" value="pro1">
+				<label for="pro1">Ninguno</label>
+				<br>
+				<input type="radio" id="pro2" name="pro" value="pro2">
+				<label for="pro2">Transporte gratuito</label>
+				<br>
+				<input type="radio" id="pro3" name="pro" value="pro3">
+				<label for="pro3">Descuento 5%</label>
+			</fieldset>
+		</form>
+		<br><br>
+		<input type="submit" value="Guardar Cambios" id="guardar_cambios">
+		<button id="borrar" onclick="limpiarCampos()">Borrar los datos introducidos</button>
+	</form>
+</body>
+
+<script>
+	 function limpiarCampos() {
+	    document.getElementById("producto").value = "";
+	    document.getElementById("descripcion").value = "";
+		document.getElementById("foto").value = "";
+		document.getElementById("confidencial").checked = false;
+		document.getElementById("impuestos").checked = false;
+	    document.getElementById("precio").value = "";
+		document.getElementById("pro1").checked = false;
+    	document.getElementById("pro2").checked = false;
+    	document.getElementById("pro3").checked = false;
+	}
+</script>
+
+</html>

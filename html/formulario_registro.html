@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formulario registro</title>
+
+	<link rel="stylesheet" href="../css/main2.css">
+</head>
+<body>
+
+	<form id="form1">
+		<fieldset>
+		<legend>DIRECCIÓN DE ENVÍO</legend>
+			<label for="calle1">Calle principal:</label>
+			<br>
+			<input type="text" id="calle1" name="calle1">
+
+			<br><br>
+			<label for="calle2">Transversal:</label>
+			<br>
+			<input type="text" id="calle2" name="calle2">
+
+			<br><br>
+			<label for="propietario">
+	    		<input type="checkbox" id="propietario" name="propietario" value="propietario" onchange="toggleForm()">Entrega al propietario
+	  		</label>
+	  		<br>
+	  		<label for="tercero">
+	    		<input type="checkbox" id="tercero" name="tercero" value="tercero" onchange="checkCasilla()">Entrega a un tercero
+	  		</label>
+
+	  		<br><br>
+	  		<label for="cantones">Cantones:
+		  		<select id="cantones">
+			  		<option value="opcion1">Cayambe</option>
+			  		<option value="opcion2">Quito</option>
+			  		<option value="opcion3">Mejía</option>
+			  		<option value="opcion4">Pedro Moncayo</option>
+			  		<option value="opcion5">Pedro Vicente Maldonado</option>
+			  		<option value="opcion6">Puerto Quito</option>
+			  		<option value="opcion7">Rumiñahui</option>
+			  		<option value="opcion8">San Miguel De Los Bancos</option>
+				</select>
+			</label>
+
+			<br><br>
+			<input type="submit" value="ENVIAR DATOS" id="boton" disabled>
+		</fieldset>
+	</form>
+
+	<form id="form2" style="display: none;">
+		<fieldset>
+			<legend>INFORMACIÓN CONFIDENCIAL</legend>
+			<label for="postal">Código Postal:</label>
+			<br>
+			<input type="text" id="postal" name="postal" minlength="6" maxlength="6" onkeyup="this.value=Numeros(this.value)">
+			<br><br>
+			<label for="referencia">Referencia De La Dirección</label>
+			<br>
+			<textarea id="referencia" name="referencia"></textarea>
+			<br><br>
+			<input type="submit" id="guardar" value="GUARDAR">
+		</fieldset>
+	</form>
+
+	<script src="../js/validacion.js"></script>
+
+</body>
+
+<script>
+	function checkCasilla() {
+	  	var casilla = document.getElementById("tercero");
+	  	var boton = document.getElementById("boton");
+	  
+	  	if (casilla.checked) {
+	    	boton.disabled = false;
+	  	} else {
+	    	boton.disabled = true;
+  		}
+	}
+
+	function toggleForm() {
+    	var checkbox = document.getElementById("propietario");
+    	var formulario = document.getElementById("form2");
+
+    	if (checkbox.checked) {
+      		formulario.style.display = "inline-block";
+    	} else {
+      		formulario.style.display = "none";
+    	}
+  	}
+
+// 	function toggleForm() {
+  //   var checkbox = document.getElementById("propietario");
+  //   var submitButton = document.getElementById("guardar");
+  //   var form = document.getElementById("myForm");
+
+  //   if (checkbox.checked) {
+  //     submitButton.disabled = false;
+  //     form.classList.remove("disabled");
+  //   } else {
+  //     submitButton.disabled = true;
+  //     form.classList.add("disabled");
+  //   }
+  // }
+</script>
+
+</html>
